@@ -5,6 +5,9 @@
 # Integrantes:
 
 Joan Lucas
+
 Josivaldo Natal
+
 Maria Conceição
+
 Vinícius Augusto
