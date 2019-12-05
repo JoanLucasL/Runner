@@ -1,0 +1,65 @@
+.barra {
+  background-color: black;
+  border:none;
+}
+
+.container {
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive; 
+  margin-left: 30%;
+  margin-right: 30%;
+  flex-direction: row;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+body{
+  background-image: url(foto.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: white;
+}
+#tamanho{
+  width: 190px;
+  margin-top: 120px;
+}
+
+
+
+.sobre_jogo{
+display: flex;
+width: 100%;
+height: 900px;
+text-align: center;
+align-content: center;
+justify-content: center;
+flex-direction: column;
+
+
+}
+#sobre{
+color:white;
+font-size: 45px;
+
+
+}
+
+#titulo{
+
+font-size: 60px;
+color:white;
+margin-top: -450px;
+
+}
+button{
+  /*Movimento para Direita*/
+  margin-left: 890px;
+  
+
+
+}
