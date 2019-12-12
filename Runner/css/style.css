@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#game {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  background: url("../sprites/background/Background.png");
+  background-size: cover; 
+}
+#game .vel, #game .score {
+  width: 10vw;
+  height: 10vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background: gray;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#game .score {
+  right: 22vh;
+  background: #ffbb33;
+}
+#game .surface {
+  position: absolute;
+  /*background: #333333;*/
+}
+#game .player {
+  position: absolute;
+  /*background: #ff6666;*/
+}
+
+/*# sourceMappingURL=style.css.map */
