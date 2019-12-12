@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Running</title>
+  <script src="vue.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+   <embed src="music/musica.mp3" hidden="true" loop="infinite" autostart="TRU">
+
+  <script src="js/Element.js"></script>
+  <script src="js/MoveableElement.js"></script>
+  <script src="js/Player.js"></script>
+  <script src="js/Viewport.js"></script>
+  <script src="js/Obstacle.js"></script>
+  <script src="js/Wall.js"></script>
+  <script src="js/World.js"></script>
+
+</head>
+<body>
+  <div id="game" tabindex="0"
+    v-on:keydown="keydown"
+    v-on:keyup="keyup"
+    :style="viewport.style()">
+    <div class="vel">
+      {{ player.vel[0].toFixed(4) }}
+    </div>
+    <div class="score">
+      {{ player.x.toFixed(0) }}
+    </div>
+    <div class="world">
+      <div v-for="surface in world.visibleSurfaces()" class="surface" v-bind:style="viewport.styleFor(surface)"></div>
+      <div class="player" v-bind:style="viewport.styleFor(player)"></div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
