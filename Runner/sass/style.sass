@@ -1,0 +1,31 @@
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  // transition: 0.2s linear
+#game
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+  position: absolute
+  .vel, .score
+    width: 10vw
+    height: 10vh
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 1
+    background: hsl(0, 0%, 50%)
+    color: white
+    display: flex
+    align-items: center
+    justify-content: center
+  .score
+    right: 10vh
+    background: hsl(40, 100%, 60%)
+  .surface
+    position: absolute
+    background: hsl(0, 0%, 20%)
+  .player
+     position: absolute
+     background: hsl(0, 100%, 70%)
