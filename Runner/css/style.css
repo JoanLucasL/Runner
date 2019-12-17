@@ -5,8 +5,8 @@
 }
 
 #game {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   position: absolute;
   background: url("../sprites/background/Background.png");
@@ -26,7 +26,7 @@
   justify-content: center;
 }
 #game .score {
-  right: 22vh;
+  right: 2vh;
   background: #ffbb33;
 }
 #game .surface {

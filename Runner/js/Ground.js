@@ -1,10 +1,10 @@
-class Obstacle extends Element {
+class Ground extends Element {
   constructor(x, y, w) {
-    super(x, y, w, 100)
+    super(x, y, w, 64)
   }
 
   style() {
-  	let bg1 = 'url("sprites/obstacle/stalagmite2.png")'
+  	let bg1 = 'url("sprites/floor/tile2.png")'
     return {
       'background-image': bg1,
       // 'background-size': '109px 109px',

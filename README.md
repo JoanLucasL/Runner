@@ -1,6 +1,6 @@
 # Runner
 
-É side-scroller 2D, que basea-se em pular e desviar de obstáculos.
+É um estilo de jogo side-scroller 2D, que basea-se em pular e desviar de obstáculos.
 
 # Integrantes:
 
@@ -16,3 +16,4 @@ Vinícius Augusto
 # Dependências
 
 Vue
+Materialize

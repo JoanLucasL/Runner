@@ -8,7 +8,8 @@ class World {
     this.player = null
 
     this.surfaces = []
-    this.obstacles = []
+    this.grounds = []
+    this.obstacles =[]
 
     this.gravity = -1
     // this.width = Math.min(window.innerWidth, w)
@@ -20,6 +21,7 @@ class World {
     this.player.acc[1] = this.gravity
 
     this.addBoundaries()
+    this.addGrounds()
     this.addObstacles()
   }
 
@@ -31,8 +33,30 @@ class World {
   }
 
   adapt() {
+    if (this.grounds[this.grounds.length - 2].isVisibleOn(this.viewport)) {
+      this.addGrounds(5)
+    }
     if (this.obstacles[this.obstacles.length - 2].isVisibleOn(this.viewport)) {
       this.addObstacles(5)
+    }
+  }
+
+  addGrounds(n = 4) {
+    let vw = this.viewport.width
+    let maxw = vw
+    let y = -20
+    for (let i = 0; i < n; i++) {
+      let last = this.grounds.slice(-1)[0]
+      let x = last ? last.x : -500
+      x += 600
+      
+      let w = 400  + Math.round(Math.random() * 100)
+      
+      console.log(x, y, w)
+      let ground = new Ground(x, y, w)
+      this.grounds.push(ground)
+      this.surfaces.push(ground)
+      x += maxw
     }
   }
 
@@ -42,34 +66,26 @@ class World {
     let y = -20
     for (let i = 0; i < n; i++) {
       let last = this.obstacles.slice(-1)[0]
-      let x = last ? last.x : -500
-      x += 600
-      /*if (y < 50) {
-         y += Math.round(Math.random() * 150)
-       } else if (y > 250) {
-        y -= Math.round(Math.random() * 150)
-       } else {
-        y += 50 - Math.round(Math.random() * 200)
-       }
-      // let w = maxw - (5 * this.player.vel[0]) + Math.round(Math.random() * 5 * this.player.vel[0])*/
-      let w = 400  + Math.round(Math.random() * 100)
-      // console.log(w)
-      console.log(x, y, w)
-      let obstacle = new Obstacle(x, y, w)
-      this.obstacles.push(obstacle)
-      this.surfaces.push(obstacle)
-      x += maxw
+      let x = last ? last.x : Math.round(Math.random() * 300)
+      x += 900
+      
+       let w = 50
+
+       let obstacle = new Obstacle(x, y, w)
+       this.obstacles.push(obstacle)
+       this.surfaces.push(obstacle)
+       x += maxw
+      }
     }
-  }
 
   addBoundaries() {
-    // floor
-    // this.surfaces.push(
-    //   new Ground(0, 0, Infinity)
-    // )
-    // roof
+    // obstacles
     this.surfaces.push(
-      new Obstacle(0, this.height, Infinity)
+       new Obstacle(Infinity, 0, Infinity)
+    )
+    // floor
+    this.surfaces.push(
+      new Ground(0, this.height, Infinity)
     )
     // left wall
     this.surfaces.push(
@@ -78,7 +94,7 @@ class World {
   }
 
   addHeightSurface(){
-  	new Obstacle(0,random)
+  	new Ground(0,random)
   }
 
   addWalls(n) {
@@ -107,7 +123,7 @@ class World {
   }
 
   detectPlayerCollisions() {
-    return this.visibleSurfaces().filter(obstacle => this.player.inCollisionWith(obstacle))
+    return this.visibleSurfaces().filter(ground => this.player.inCollisionWith(ground))
   }
 
   resolvePlayerCollisions(collisionElements) {

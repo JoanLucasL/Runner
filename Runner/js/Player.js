@@ -6,6 +6,7 @@ class Player extends MoveableElement {
     super(10, 400, w, h);
     this.lastVelY = 0
     this.jumping = false
+    this.falling = false
     this.frame = 0
     console.log(this.acc)
   }
@@ -28,6 +29,12 @@ class Player extends MoveableElement {
     if (!this.jumping) {
       this.vel[1] = 20
       this.jumping = true
+    }
+  }
+  fall() {
+    if (!this.falling) {
+      this.vel[1] = -100
+      this.falling = true
     }
   }
 

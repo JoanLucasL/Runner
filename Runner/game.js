@@ -16,7 +16,7 @@ let game = new Vue({
   },
   mounted: function() {
     this.$el.focus()
-    setInterval(this.loop, 1000 / this.frequency)
+    setTimeout(this.loop, 1000 / this.frequency)
     this.player.moveBy(3)
     this.player.accelerateBy(0.001)
     // this.loop()
@@ -46,28 +46,46 @@ let game = new Vue({
       return movement
     },
     shouldJump() {
-      return this.keys[' ']
+      return this.keys['ArrowUp']
+    },
+    shouldFall() {
+      return this.keys['ArrowDown']
     },
     processInputs() {
       let movement = this.calcMovement()
       let shouldJump = this.shouldJump()
+      let shouldFall = this.shouldFall()
 
       if (shouldJump) {
         this.player.jump()
+      } 
+      if (shouldFall) {
+      	this.player.fall()
       }
       // this.player.moveBy(movement[0] * 20)
     },
     gameLogic() {
       this.processInputs()
       this.world.move()
+      // verifica se a posição y do jogador é menor que zero. se for, perdeu.
+      if (this.player.y > -70) {
+      return true
+      } else {
+        return false
+      }
       // detect collisions
       // resolve collisions
     },
     loop() {
-      this.gameLogic()
+      if (this.gameLogic()) {
+        setTimeout(this.loop, 1000 / this.frequency)
+      } else {
+        // perdeu
+        if(confirm("Jogar Novamente?")){ window.location.reload()} else { window.location.assign("runner.html")}
+      }
       // if (this.keys['Shift']) {
       // }
-      if (this.keys[' ']) {
+      if (this.keys['ArrowUp']) {
       }
       // console.log(this.player.y)
       this.time++
