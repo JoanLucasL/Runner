@@ -33,7 +33,7 @@ class Player extends MoveableElement {
   }
   fall() {
     if (!this.falling) {
-      this.vel[1] = -100
+      this.vel[1] = -1000
       this.falling = true
     }
   }
@@ -45,6 +45,7 @@ class Player extends MoveableElement {
     // console.log(this.vel[0], this.vel[1], this.acc[1])
     if (this.vel[1] == this.lastVelY && this.lastVelY != this.maxVel()[1]['min']) {
       this.jumping = false
+      this.falling = false
     }
     this.lastVelY = this.vel[1]
     this.frame = (this.frame + 1) % (100 / this.vel[0])

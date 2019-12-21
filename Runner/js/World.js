@@ -63,18 +63,18 @@ class World {
   addObstacles(n = 4) {
     let vw = this.viewport.width
     let maxw = vw
-    let y = -20
+    let y = 100 + Math.floor(Math.random() * 190)
     for (let i = 0; i < n; i++) {
       let last = this.obstacles.slice(-1)[0]
-      let x = last ? last.x : Math.round(Math.random() * 300)
-      x += 900
+      let x = last ? last.x : Math.round(Math.random() * (400 - 600) + 400)
+      x += 600
       
        let w = 50
 
        let obstacle = new Obstacle(x, y, w)
        this.obstacles.push(obstacle)
        this.surfaces.push(obstacle)
-       x += maxw
+       x += Math.round(Math.random() * (400 - 600) + maxw)
       }
     }
 

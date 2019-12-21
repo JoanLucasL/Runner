@@ -11,6 +11,8 @@
   position: absolute;
   background: url("../sprites/background/Background.png");
   background-size: cover; 
+  top: 0;
+  left: 0;
 }
 #game .vel, #game .score {
   width: 10vw;

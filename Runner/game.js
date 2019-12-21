@@ -57,7 +57,7 @@ let game = new Vue({
       let shouldFall = this.shouldFall()
 
       if (shouldJump) {
-        this.player.jump()
+        this.player.jump();
       } 
       if (shouldFall) {
       	this.player.fall()
@@ -69,7 +69,7 @@ let game = new Vue({
       this.world.move()
       // verifica se a posição y do jogador é menor que zero. se for, perdeu.
       if (this.player.y > -70) {
-      return true
+        return true
       } else {
         return false
       }

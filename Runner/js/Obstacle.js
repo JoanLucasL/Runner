@@ -1,15 +1,19 @@
-class Obstacle extends Element {
+class Obstacle extends MoveableElement {
   constructor(x, y, w) {
-    super(x, y, w, 100)
+    super(x, y, w, 50)
+    
   }
 
   style() {
-  	let bg1 = 'url("sprites/obstacle/stalagmite2.png")'
+  	let bg1 = 'url("sprites/obstacle/bat-sprite.png")'
+
+
     return {
       'background-image': bg1,
-      // 'background-size': '109px 109px',
-      'background-position-y': '-16px',
+      'background-size': '202px 202px',
+      'background-position-y': '-150px',
       'background-repeat-y': 'no-repeat',
+      'background-position-x': 100 + 'px',
       width: this.width,
       height: this.height,
     }
